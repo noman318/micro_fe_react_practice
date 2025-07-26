@@ -6,6 +6,7 @@ export const mfConfig = {
     "./Header": "./src/components/Header.tsx",
     "./Footer": "./src/components/Footer.tsx",
     "./tailwind.css": "./src/index.css", // Path to your Tailwind CSS file
+    "./products": "./src/products.ts",
   },
   shared: ["react", "react-dom"],
 };

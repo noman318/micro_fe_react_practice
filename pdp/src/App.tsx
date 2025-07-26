@@ -1,16 +1,24 @@
-import React, { Suspense } from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
 import "home/tailwind.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import ErrorBoundary from "./ErrorBoundary";
+import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductContent from "./ProductContent";
 const Header = React.lazy(() => import("home/Header"));
 const Footer = React.lazy(() => import("home/Footer"));
 
 const App = () => (
   <div className="text-3xl mx-auto max-w-6xl">
-    <Header />
-    <div>Name: home</div>
-    <div>Framework: react-18</div>
-    <Footer />
+    <ErrorBoundary>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/product/:id" element={<ProductContent />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </ErrorBoundary>
   </div>
 );
 
