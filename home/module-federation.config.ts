@@ -8,10 +8,5 @@ export const mfConfig = {
     "./tailwind.css": "./src/index.css", // Path to your Tailwind CSS file
     "./products": "./src/products.ts",
   },
-  remotes: {
-    home: "home@http://localhost:8080/remoteEntry.js", // Point to remoteEntry.js
-    pdp: "pdp@http://localhost:3000/remoteEntry.js", // Point to remoteEntry.js
-    cart: "cart@http://localhost:3002/remoteEntry.js", // Point to remoteEntry.js
-  },
   shared: ["react", "react-dom"],
 };
