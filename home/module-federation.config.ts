@@ -9,4 +9,7 @@ export const mfConfig = {
     "./products": "./src/products.ts",
   },
   shared: ["react", "react-dom"],
+  typescript: {
+    generateTypes: false,
+  },
 };

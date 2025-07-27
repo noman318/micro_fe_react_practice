@@ -1,10 +1,23 @@
 export const mfConfig = {
   name: "cart",
-  filename: "remoteEntry.js", // Force traditional Webpack output
-  library: { type: "var", name: "home" }, // Legacy global variable
+  filename: "remoteEntry.js",
+  library: { type: "var", name: "cart" },
   remotes: {
-    home: "home@http://localhost:8080/remoteEntry.js", // Point to remoteEntry.js
-    pdp: "pdp@http://localhost:3000/remoteEntry.js", // Point to remoteEntry.js
+    home: `promise new Promise((resolve) => {
+      const remoteUrl = 'http://localhost:8080/remoteEntry.js'
+      const script = document.createElement('script')
+      script.src = remoteUrl
+      script.onload = () => {
+        resolve({
+          get: (request) => window.home.get(request),
+          init: (arg) => window.home.init(arg)
+        })
+      }
+      document.head.appendChild(script)
+    })`,
   },
-  shared: ["react", "react-dom"],
+  shared: {
+    react: { singleton: true, eager: true },
+    "react-dom": { singleton: true, eager: true },
+  },
 };
