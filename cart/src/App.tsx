@@ -4,11 +4,12 @@ const Header = React.lazy(() => import("home/Header"));
 const Footer = React.lazy(() => import("home/Footer"));
 import "./index.css";
 import "home/tailwind.css";
+import CartContent from "./components/CartContent";
 
 const App = () => (
   <div className="mt-10 text-3xl mx-auto max-w-6xl">
     <Header />
-    <div>Name: cart</div>
+    <CartContent />
     <Footer />
   </div>
 );
