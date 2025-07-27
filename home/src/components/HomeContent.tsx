@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { currenyConvert, getAllProducts, Product } from "../products";
 
 const HomeContent = () => {
